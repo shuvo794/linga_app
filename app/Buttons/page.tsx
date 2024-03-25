@@ -8,6 +8,13 @@ const page = () => {
       <Button variant="primaryOutline"> Primary Outline </Button>
       <Button variant="secondary">secondary</Button>
       <Button variant="secondaryOutline"> secondary Outline </Button>
+      <Button variant="danger">danger</Button>
+      <Button variant="dangerOutline"> danger Outline </Button>
+      <Button variant="super">Super</Button>
+      <Button variant="superOutline"> Super Outline </Button>
+      <Button variant="ghost"> ghost </Button>
+      <Button variant="sideber">Sideber</Button>
+      <Button variant="sideberOutline"> Sideber Outline </Button>
     </div>
   );
 };
