@@ -21,7 +21,7 @@ export default function Home() {
         <h1 className="text-xl lg:text-3xl text-neutral-600 max-w-[480px] font-bold">
           Learn pertice, master the language with a free online Linga
         </h1>
-        <div>
+        <div className="flex flex-col items-center gap-y-4 max-w-[330px] w-full">
           <ClerkLoading>
             <Loader className="animate-spin h-5 w-5 text-muted-foreground" />
           </ClerkLoading>
