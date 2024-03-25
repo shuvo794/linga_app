@@ -9,6 +9,7 @@ import {
 } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -49,7 +50,13 @@ export default function Home() {
                 </Button>
               </SignInButton>
             </SignedOut>
-            <SignedIn></SignedIn>
+            <SignedIn>
+              <Link href="/learn">
+                <Button size="lg" variant="parimary" className="w-full">
+                  Start Learning
+                </Button>
+              </Link>
+            </SignedIn>
           </ClerkLoaded>
         </div>
       </div>
