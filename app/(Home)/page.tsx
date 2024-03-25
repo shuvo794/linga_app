@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ClerkLoading } from "@clerk/nextjs";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
 
@@ -17,6 +24,33 @@ export default function Home() {
           <ClerkLoading>
             <Loader className="animate-spin h-5 w-5 text-muted-foreground" />
           </ClerkLoading>
+          <ClerkLoaded>
+            <SignedOut>
+              <SignUpButton
+                mode="modal"
+                afterSignInUrl="/learn"
+                afterSignUpUrl="/learn"
+              >
+                <Button size="lg" variant="secondary" className="w-full">
+                  Get Started
+                </Button>
+              </SignUpButton>
+              <SignInButton
+                mode="modal"
+                afterSignInUrl="/learn"
+                afterSignUpUrl="/learn"
+              >
+                <Button
+                  size="lg"
+                  variant="primaryOutline"
+                  className="w-full my-4"
+                >
+                  I have all ready have acount
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn></SignedIn>
+          </ClerkLoaded>
         </div>
       </div>
     </div>
