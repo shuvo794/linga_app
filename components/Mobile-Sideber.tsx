@@ -7,7 +7,7 @@ const MobileSideber = () => {
       <SheetTrigger>
         <Menu className="text-white" />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="p-0 z-[100] w-full " side="left">
         <SideBer />
       </SheetContent>
     </Sheet>
