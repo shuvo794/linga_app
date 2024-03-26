@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   className: string;
@@ -13,10 +14,12 @@ export const SideBer = ({ className }: Props) => {
         className
       )}
     >
-      <div className="pt-8 pb-8 flex items-center gap-x-3">
-        <Image src="/mascot.svg" width={40} height={40} alt="" />
-        <h3 className="text-3xl font-bold text-green-600">Linga</h3>
-      </div>
+      <Link href="/learn">
+        <div className="pt-8 pb-8 flex items-center gap-x-3">
+          <Image src="/mascot.svg" width={40} height={40} alt="" />
+          <h3 className="text-3xl font-bold text-green-600">Linga</h3>
+        </div>
+      </Link>
     </div>
   );
 };
