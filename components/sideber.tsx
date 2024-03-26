@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import SideberIteam from "./SideberIteam";
 
+import { UserButton, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+import { Loader } from "lucide-react";
+
 type Props = {
   className: string;
 };
@@ -31,6 +34,14 @@ export const SideBer = ({ className }: Props) => {
         />
         <SideberIteam iconSrc="/quests.svg" label="Quests" href="/Quests" />
         <SideberIteam iconSrc="/shop.svg" label="Shop" href="/shop" />
+      </div>
+      <div className="p-4">
+        <ClerkLoading>
+          <Loader className="animate-spin h-5 w-5 text-muted-foreground" />
+        </ClerkLoading>
+        <ClerkLoaded>
+          <UserButton afterSignOutUrl="/" />
+        </ClerkLoaded>
       </div>
     </div>
   );
