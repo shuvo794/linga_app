@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import SideberIteam from "./SideberIteam";
 
 type Props = {
   className: string;
@@ -20,6 +21,9 @@ export const SideBer = ({ className }: Props) => {
           <h3 className="text-3xl font-bold text-green-600">Linga</h3>
         </div>
       </Link>
+      <div className="flex flex-col gap-y-2 flex-1">
+        <SideberIteam />
+      </div>
     </div>
   );
 };
