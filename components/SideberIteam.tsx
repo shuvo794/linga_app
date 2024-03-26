@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   label: string;
@@ -18,7 +19,16 @@ const SideberIteam = ({ label, iconSrc, href }: Props) => {
       className="justify-start h-[52]"
       asChild
     >
-      <Link href={href}>{label}</Link>
+      <Link href={href}>
+        <Image
+          src={iconSrc}
+          width={20}
+          height={20}
+          className="mr-5 "
+          alt={label}
+        />
+        {label}
+      </Link>
     </Button>
   );
 };

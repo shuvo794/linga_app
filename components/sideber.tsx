@@ -22,7 +22,15 @@ export const SideBer = ({ className }: Props) => {
         </div>
       </Link>
       <div className="flex flex-col gap-y-2 flex-1">
-        <SideberIteam label="Learn" href="/learn" />
+        <SideberIteam iconSrc="/learn.svg" label="Learn" href="/learn" />
+
+        <SideberIteam
+          iconSrc="/leaderboard.svg"
+          label="leaderboard"
+          href="/leaderboard"
+        />
+        <SideberIteam iconSrc="/quests.svg" label="Quests" href="/Quests" />
+        <SideberIteam iconSrc="/shop.svg" label="Shop" href="/shop" />
       </div>
     </div>
   );
