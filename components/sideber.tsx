@@ -22,7 +22,7 @@ export const SideBer = ({ className }: Props) => {
         </div>
       </Link>
       <div className="flex flex-col gap-y-2 flex-1">
-        <SideberIteam />
+        <SideberIteam label="Learn" href="/learn" />
       </div>
     </div>
   );
