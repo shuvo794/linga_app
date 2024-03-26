@@ -4,7 +4,7 @@ type Props = {
   className: string;
 };
 
-const SideBer = ({ className }: Props) => {
+export const SideBer = ({ className }: Props) => {
   return (
     <div
       className={cn(
