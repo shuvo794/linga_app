@@ -10,7 +10,7 @@ const learnPage = () => {
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWorper>
         <UserProgress
-          activeCourse={{}}
+          activeCourse={{ title: "Spanish", imgeSrc: "/es.svg" }}
           harts={5}
           points={100}
           hasActiveSubcription={false}
