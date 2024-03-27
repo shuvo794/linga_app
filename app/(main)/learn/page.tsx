@@ -7,7 +7,14 @@ import { title } from "process";
 const learnPage = () => {
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
-      <StickyWorper>My Sticky Worper</StickyWorper>
+      <StickyWorper>
+        <UserProgress
+          activeCourse={{}}
+          harts={5}
+          points={100}
+          hasActiveSubcription={false}
+        />
+      </StickyWorper>
       <FeedWorper>
         <Header title="Spanish" />
       </FeedWorper>
