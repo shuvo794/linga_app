@@ -5,7 +5,9 @@ const learnPage = () => {
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWorper>My Sticky Worper</StickyWorper>
-      <FeedWorper>My feedWorper</FeedWorper>
+      <FeedWorper>
+        <Header title="Spanish" />
+      </FeedWorper>
     </div>
   );
 };
