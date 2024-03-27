@@ -1,6 +1,8 @@
 import { FeedWorper } from "@/components/Feed-Worper/Feed-Worper";
 import { StickyWorper } from "@/components/Sticky-Worper/Sticky_Worper";
 import { Header } from "./Header";
+import { time } from "console";
+import { title } from "process";
 
 const learnPage = () => {
   return (
