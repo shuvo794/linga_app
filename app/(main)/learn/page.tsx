@@ -3,6 +3,7 @@ import { StickyWorper } from "@/components/Sticky-Worper/Sticky_Worper";
 import { Header } from "./Header";
 import { time } from "console";
 import { title } from "process";
+import { UserProgress } from "@/components/User-Progress/User-Progress";
 
 const learnPage = () => {
   return (
