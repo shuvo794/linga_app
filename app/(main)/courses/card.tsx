@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
+import Image from "next/image";
 
 type Props = {
   id: number;
@@ -33,6 +34,7 @@ export const Card = ({
           </div>
         )}
       </div>
+      <Image src={imageSrc} alt={title} width={210} height={210} />
     </div>
   );
 };
