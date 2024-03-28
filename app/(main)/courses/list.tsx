@@ -1,6 +1,7 @@
 "use client";
 
 import { courses } from "@/db/schema";
+import { Card } from "./card";
 
 type Props = {
   courses: (typeof courses.$inferInsert)[];
@@ -18,6 +19,7 @@ export const List = ({ courses, activeCoursesId }: Props) => {
           title={course.title}
           imageSrc={course.imageSrc}
           disabled={false}
+          onClick={() => {}}
         />
       ))}
     </div>
