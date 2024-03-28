@@ -1,5 +1,5 @@
 import { getCourses } from "@/db/queries";
-import { List } from "lucide-react";
+import { List } from "./list";
 
 const Courses = async () => {
   const courses = await getCourses();
