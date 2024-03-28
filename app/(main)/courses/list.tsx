@@ -7,6 +7,10 @@ type Props = {
   activeCoursesId: number;
 };
 
-export const List = ({ courses, activeCoursesId }: Props) => {
-  return <div>List</div>;
+export const List = ({}: Props) => {
+  return (
+    <div className="pt-6 grid grid-cols-2 lg:grid-cols-[repeat(auto-fill,minmax(210px,1fr))]">
+      List
+    </div>
+  );
 };
