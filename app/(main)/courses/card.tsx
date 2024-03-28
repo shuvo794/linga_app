@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Check } from "lucide-react";
 
 type Props = {
   id: number;
@@ -25,7 +26,13 @@ export const Card = ({
         disabled && "pointer-events-none opacity-50"
       )}
     >
-      card
+      <div className="min-[24px] w-full  flex items-center justify-end">
+        {active && (
+          <div className="rounded-full bg-green-500 p-1 flex items-center">
+            <Check className="text-white stroke-[4] h-4 w-4" />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
