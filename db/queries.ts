@@ -9,4 +9,7 @@ export const getCourses = cache(async () => {
 
 export const getUserProgress = cache(async () => {
   const { userId } = await auth();
+  if (!userId) {
+    return null;
+  }
 });
