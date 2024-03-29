@@ -14,4 +14,5 @@ export const user_progress = pgTable("user_progress", {
     onDelete: "cascade",
   }),
   hearts: integer("hearts").notNull().default(5),
+  points: integer("points").notNull().default(0),
 });
