@@ -34,7 +34,14 @@ export const Card = ({
           </div>
         )}
       </div>
-      <Image src={imageSrc} alt={title} width={210} height={210} />
+      <Image
+        src={imageSrc}
+        alt={title}
+        width={93.33}
+        height={70}
+        className="rounded-lg drop-shadow-md border object-cover"
+      />
+      <p className="text-center font-semibold mt-3 text-neutral-400">{title}</p>
     </div>
   );
 };
