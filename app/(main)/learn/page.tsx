@@ -3,8 +3,10 @@ import { StickyWorper } from "@/components/Sticky-Worper/Sticky_Worper";
 import { Header } from "./Header";
 
 import { UserProgress } from "@/components/User-Progress/User-Progress";
+import { getUserProgress } from "@/db/queries";
 
-const learnPage = () => {
+const learnPage = async () => {
+  const getUserProgressData = await getUserProgress();
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWorper>
