@@ -6,8 +6,8 @@ import { UserProgress } from "@/components/User-Progress/User-Progress";
 import { getUserProgress } from "@/db/queries";
 
 const learnPage = async () => {
-  const getUserProgressData = getUserProgress();
-  const [userProgress] = await Promise.all([getUserProgressData]);
+  const UserProgressData = getUserProgress();
+  const [userProgress] = await Promise.all([UserProgressData]);
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWorper>
