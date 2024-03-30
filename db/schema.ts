@@ -20,7 +20,7 @@ export const coursesRelationships = relations(courses, ({ many }) => ({
 }));
 export const units = pgTable("units", {
   id: serial("id").primaryKey(),
-  text: text("text").notNull(),
+  title: text("title").notNull(),
   discription: text("discription").notNull(),
   courseId: integer("course_id")
     .notNull()

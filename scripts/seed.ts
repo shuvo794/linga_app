@@ -38,6 +38,17 @@ const main = async () => {
         imageSrc: "/fr.svg",
       },
     ]);
+
+    await db.insert(schema.units).values([
+      {
+        id: 1,
+        courseId: 1,
+        title: "Unit 1",
+        discription: "Learn the basics of Spanish",
+        order: 1,
+      },
+    ]);
+
     console.log("Seeding database Finished!");
   } catch (error) {
     console.log(error);
