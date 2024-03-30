@@ -36,7 +36,7 @@ export const unitsRelationships = relations(units, ({ many, one }) => ({
     fields: [units.courseId],
     references: [courses.id],
   }),
-  lesson: many(lessons),
+  lessons: many(lessons),
 }));
 
 export const lessons = pgTable("lessons", {
