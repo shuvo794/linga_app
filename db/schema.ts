@@ -11,6 +11,13 @@ export const units = pgTable("units", {
   id: serial("id").primaryKey(),
   text: text("text").notNull(),
   discription: text("discription").notNull(),
+  courseId: integer("course_id")
+    .notNull()
+    .references(() => courses.id, {
+      onDelete: "cascade",
+    })
+    .notNull(),
+  order: integer("order").notNull(),
 });
 
 export const coursesRelationships = relations(courses, ({ many }) => ({
