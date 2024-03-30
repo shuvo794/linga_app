@@ -68,6 +68,13 @@ export const challenges = pgTable("challenges", {
   order: integer("order").notNull(),
 });
 
+export const challengesRelationships = relations(challenges, ({ one }) => ({
+  lesson: one(lessons, {
+    fields: [challenges.lessonId],
+    references: [lessons.id],
+  }),
+}));
+
 export const userProgress = pgTable("user_progress", {
   userId: text("user_id").primaryKey(),
   userName: text("user_name").notNull().default("User"),
