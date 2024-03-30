@@ -42,7 +42,6 @@ export const unitsRelationships = relations(units, ({ many, one }) => ({
 export const lessons = pgTable("lessons", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
-  discription: text("discription").notNull(),
   unitId: integer("unit_id")
     .notNull()
     .references(() => units.id, {

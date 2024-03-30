@@ -49,6 +49,20 @@ const main = async () => {
       },
     ]);
 
+    await db.insert(schema.lessons).values([
+      {
+        id: 1,
+        unitId: 1,
+        order: 1,
+        title: "Nouns",
+      },
+      {
+        id: 2,
+        unitId: 1,
+        order: 2,
+        title: "verbs",
+      },
+    ]);
     console.log("Seeding database Finished!");
   } catch (error) {
     console.log(error);
