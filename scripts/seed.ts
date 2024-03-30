@@ -11,6 +11,11 @@ const main = async () => {
     console.log("Seeding database...");
     await db.delete(schema.courses);
     await db.delete(schema.userProgress);
+    await db.delete(schema.units);
+    await db.delete(schema.lessons);
+    await db.delete(schema.challenges);
+    await db.delete(schema.challengesOptions);
+    await db.delete(schema.challangeProgress);
     await db.insert(schema.courses).values([
       {
         id: 1,
