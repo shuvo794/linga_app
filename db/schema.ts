@@ -74,6 +74,19 @@ export const challenges = pgTable("challenges", {
   question: text("question").notNull(),
   order: integer("order").notNull(),
 });
+
+export const challengesRelationships = relations(
+  challenges,
+  ({ one, many }) => ({
+    lesson: one(lessons, {
+      fields: [challenges.lessonId],
+      references: [lessons.id],
+    }),
+    challengeOptions: many(challengesOptions),
+    challangeProgress: many(challangeProgress),
+  })
+);
+
 export const challengesOptions = pgTable("challengesOptions", {
   id: serial("id").primaryKey(),
   challengesId: integer("challenges_id")
@@ -84,14 +97,40 @@ export const challengesOptions = pgTable("challengesOptions", {
     .notNull(),
   text: text("text").notNull(),
   correct: boolean("correct").notNull(),
+  imageSrc: text("image_src"),
+  audioSrc: text("audio_src"),
 });
 
-export const challengesRelationships = relations(challenges, ({ one }) => ({
-  lesson: one(lessons, {
-    fields: [challenges.lessonId],
-    references: [lessons.id],
-  }),
-}));
+export const challengesOptionsRelationships = relations(
+  challengesOptions,
+  ({ one }) => ({
+    challenge: one(challenges, {
+      fields: [challengesOptions.challengesId],
+      references: [challenges.id],
+    }),
+  })
+);
+
+export const challangeProgress = pgTable("challange_progress", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull(), // TODO: confarm this doesn't break
+  challengesId: integer("challenges_id")
+    .references(() => challenges.id, {
+      onDelete: "cascade",
+    })
+    .notNull(),
+  compeleted: boolean("compeleted").notNull().default(false),
+});
+
+export const challangeProgressRelationships = relations(
+  challangeProgress,
+  ({ one }) => ({
+    challenge: one(challenges, {
+      fields: [challangeProgress.challengesId],
+      references: [challenges.id],
+    }),
+  })
+);
 
 export const userProgress = pgTable("user_progress", {
   userId: text("user_id").primaryKey(),
