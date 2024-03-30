@@ -77,6 +77,22 @@ const main = async () => {
         text: "el hombre",
         audioSrc: "/es_man.mp3",
       },
+      {
+        id: 2,
+        challengesId: 2,
+        imageSrc: "/woman.svg",
+        correct: false,
+        text: "el woman",
+        audioSrc: "/es_woman.mp3",
+      },
+      {
+        id: 3,
+        challengesId: 3,
+        imageSrc: "/robot.svg",
+        correct: false,
+        text: "el robot",
+        audioSrc: "/es_robot.mp3",
+      },
     ]);
     console.log("Seeding database Finished!");
   } catch (error) {
