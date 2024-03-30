@@ -7,6 +7,10 @@ export const courses = pgTable("courses", {
   imageSrc: text("image_src").notNull(),
 });
 
+export const coursesRelationships = relations(courses, ({ many }) => ({
+  userProgress: many(userProgress),
+  units: many(units),
+}));
 export const units = pgTable("units", {
   id: serial("id").primaryKey(),
   text: text("text").notNull(),
@@ -20,10 +24,33 @@ export const units = pgTable("units", {
   order: integer("order").notNull(),
 });
 
-export const coursesRelationships = relations(courses, ({ many }) => ({
-  userProgress: many(userProgress),
+const unitsRelationships = relations(units, ({ many, one }) => ({
+  courses: one(courses, {
+    fields: [units.courseId],
+    references: [courses.id],
+  }),
+  lesson: many(lessons),
 }));
 
+export const lessons = pgTable("lessons", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  discription: text("discription").notNull(),
+  unitId: integer("unit_id")
+    .notNull()
+    .references(() => units.id, {
+      onDelete: "cascade",
+    })
+    .notNull(),
+  order: integer("order").notNull(),
+});
+
+export const lessonsRelationships = relations(lessons, ({ one, many }) => ({
+  units: one(units, {
+    fields: [lessons.unitId],
+    references: [units.id],
+  }),
+}));
 export const userProgress = pgTable("user_progress", {
   userId: text("user_id").primaryKey(),
   userName: text("user_name").notNull().default("User"),
