@@ -53,6 +53,8 @@ export const lessonsRelationships = relations(lessons, ({ one, many }) => ({
   }),
 }));
 
+export const challengesEnum = pgEnum("type", ["SELECT", "ASSIST"]);
+
 export const challenges = pgTable("challenges", {
   id: serial("id").primaryKey(),
   lessonId: integer("lesson_id")
@@ -61,8 +63,11 @@ export const challenges = pgTable("challenges", {
       onDelete: "cascade",
     })
     .notNull(),
+  type: challengesEnum("type").notNull(),
+  question: text("question").notNull(),
+  order: integer("order").notNull(),
 });
-export const challengesEnum = pgEnum("type", ["SELECT", "ASSIST"]);
+
 export const userProgress = pgTable("user_progress", {
   userId: text("user_id").primaryKey(),
   userName: text("user_name").notNull().default("User"),
