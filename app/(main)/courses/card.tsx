@@ -3,12 +3,12 @@ import { Check } from "lucide-react";
 import Image from "next/image";
 
 type Props = {
-  id: number;
-  active?: boolean;
   title: string;
+  id?: number;
   imageSrc: string;
-  disabled?: boolean;
   onClick: (id: number) => void;
+  disabled?: boolean;
+  active?: boolean;
 };
 
 export const Card = ({

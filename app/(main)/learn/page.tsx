@@ -10,7 +10,7 @@ const learnPage = async () => {
   const UserProgressData = getUserProgress();
   const [userProgress] = await Promise.all([UserProgressData]);
 
-  if (!userProgress || userProgress?.activeCourseId) {
+  if (!userProgress || !userProgress?.activeCourse) {
     redirect("/courses");
   }
   return (
