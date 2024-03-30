@@ -89,7 +89,6 @@ export const challengesRelationships = relations(
 export const challengesOptions = pgTable("challenges_options", {
   id: serial("id").primaryKey(),
   challengesId: integer("challenges_id")
-    .notNull()
     .references(() => challenges.id, {
       onDelete: "cascade",
     })

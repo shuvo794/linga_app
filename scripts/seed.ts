@@ -56,11 +56,26 @@ const main = async () => {
         order: 1,
         title: "Nouns",
       },
+    ]);
+
+    await db.insert(schema.challenges).values([
       {
-        id: 2,
-        unitId: 1,
-        order: 2,
-        title: "verbs",
+        id: 1,
+        lessonId: 1,
+        type: "SELECT",
+        order: 1,
+        question: 'which one of these is the "the man"?',
+      },
+    ]);
+
+    await db.insert(schema.challengesOptions).values([
+      {
+        id: 1,
+        challengesId: 1,
+        imageSrc: "/man.svg",
+        correct: true,
+        text: "el hombre",
+        audioSrc: "/es_man.mp3",
       },
     ]);
     console.log("Seeding database Finished!");
