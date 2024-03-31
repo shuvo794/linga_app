@@ -50,7 +50,15 @@ export const LessonButton = ({
       aria-disabled={locked}
       style={{ pointerEvents: locked ? "none" : "auto" }}
     >
-      {id}
+      <div
+        className="relative"
+        style={{
+          right: `${rightPossition}px`,
+          marginTop: isFirst && !isComplete ? 60 : 24,
+        }}
+      >
+        {id}
+      </div>
     </Link>
   );
 };
