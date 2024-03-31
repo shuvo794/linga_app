@@ -3,7 +3,7 @@ import { drizzle } from "drizzle-orm/neon-http";
 import { neon } from "@neondatabase/serverless";
 import * as schema from "../db/schema";
 
-const sql = neon(process.env.DATABASE_URL!);
+const sql = neon(process.env.DATABASE!);
 const db = drizzle(sql, { schema });
 
 const main = async () => {
@@ -14,8 +14,8 @@ const main = async () => {
     await db.delete(schema.units);
     await db.delete(schema.lessons);
     await db.delete(schema.challenges);
-    await db.delete(schema.challengesOptions);
-    await db.delete(schema.challangeProgress);
+    await db.delete(schema.challengeOptions);
+    await db.delete(schema.challengeProgress);
     await db.insert(schema.courses).values([
       {
         id: 1,
@@ -66,12 +66,26 @@ const main = async () => {
         order: 1,
         question: 'which one of these is the "the man"?',
       },
+      {
+        id: 2,
+        lessonId: 1,
+        type: "SELECT",
+        order: 2,
+        question: 'which one of these is the "the woman"?',
+      },
+      {
+        id: 3,
+        lessonId: 1,
+        type: "SELECT",
+        order: 3,
+        question: 'which one of these is the "the robot"?',
+      },
     ]);
 
-    await db.insert(schema.challengesOptions).values([
+    await db.insert(schema.challengeOptions).values([
       {
         id: 1,
-        challengesId: 1,
+        challengeId: 1,
         imageSrc: "/man.svg",
         correct: true,
         text: "el hombre",
@@ -79,7 +93,7 @@ const main = async () => {
       },
       {
         id: 2,
-        challengesId: 2,
+        challengeId: 2,
         imageSrc: "/woman.svg",
         correct: false,
         text: "el woman",
@@ -87,7 +101,7 @@ const main = async () => {
       },
       {
         id: 3,
-        challengesId: 3,
+        challengeId: 3,
         imageSrc: "/robot.svg",
         correct: false,
         text: "el robot",

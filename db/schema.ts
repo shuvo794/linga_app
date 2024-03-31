@@ -20,7 +20,7 @@ export const coursesRelationships = relations(courses, ({ many }) => ({
 }));
 export const units = pgTable("units", {
   id: serial("id").primaryKey(),
-  title: text("title").notNull(),
+  title: text("text").notNull(),
   discription: text("discription").notNull(),
   courseId: integer("course_id")
     .notNull()
@@ -36,7 +36,7 @@ export const unitsRelationships = relations(units, ({ many, one }) => ({
     fields: [units.courseId],
     references: [courses.id],
   }),
-  lessons: many(lessons),
+  lesson: many(lessons),
 }));
 
 export const lessons = pgTable("lessons", {
@@ -81,50 +81,47 @@ export const challengesRelationships = relations(
       fields: [challenges.lessonId],
       references: [lessons.id],
     }),
-    challengeOptions: many(challengesOptions),
-    challangeProgress: many(challangeProgress),
+    challengeOptions: many(challengeOptions),
+    challangeProgress: many(challengeProgress),
   })
 );
 
-export const challengesOptions = pgTable("challenges_options", {
+export const challengeOptions = pgTable("challenge_options", {
   id: serial("id").primaryKey(),
-  challengesId: integer("challenges_id")
-    .references(() => challenges.id, {
-      onDelete: "cascade",
-    })
+  challengeId: integer("challenge_id")
+    .references(() => challenges.id, { onDelete: "cascade" })
     .notNull(),
+
   text: text("text").notNull(),
   correct: boolean("correct").notNull(),
   imageSrc: text("image_src"),
   audioSrc: text("audio_src"),
 });
 
-export const challengesOptionsRelationships = relations(
-  challengesOptions,
+export const challengeOptionsRelations = relations(
+  challengeOptions,
   ({ one }) => ({
     challenge: one(challenges, {
-      fields: [challengesOptions.challengesId],
+      fields: [challengeOptions.challengeId],
       references: [challenges.id],
     }),
   })
 );
 
-export const challangeProgress = pgTable("challange_progress", {
+export const challengeProgress = pgTable("challenge_progress", {
   id: serial("id").primaryKey(),
-  userId: text("user_id").notNull(), // TODO: confarm this doesn't break
-  challengesId: integer("challenges_id")
-    .references(() => challenges.id, {
-      onDelete: "cascade",
-    })
+  userId: text("user_id").notNull(),
+  challengeId: integer("challenge_id")
+    .references(() => challenges.id, { onDelete: "cascade" })
     .notNull(),
-  compeleted: boolean("compeleted").notNull().default(false),
+  completed: boolean("completed").notNull().default(false),
 });
 
-export const challangeProgressRelationships = relations(
-  challangeProgress,
+export const challengeProgressRelations = relations(
+  challengeProgress,
   ({ one }) => ({
     challenge: one(challenges, {
-      fields: [challangeProgress.challengesId],
+      fields: [challengeProgress.challengeId],
       references: [challenges.id],
     }),
   })
