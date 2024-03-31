@@ -3,12 +3,14 @@ import { StickyWorper } from "@/components/Sticky-Worper/Sticky_Worper";
 import { Header } from "./Header";
 
 import { UserProgress } from "@/components/User-Progress/User-Progress";
-import { getUserProgress } from "@/db/queries";
+import { getUnits, getUserProgress } from "@/db/queries";
 import { redirect } from "next/navigation";
 
 const learnPage = async () => {
   const UserProgressData = getUserProgress();
-  const [userProgress] = await Promise.all([UserProgressData]);
+  const unitData = getUnits();
+
+  const [userProgress, units] = await Promise.all([UserProgressData, unitData]);
 
   if (!userProgress || !userProgress?.activeCourse) {
     redirect("/courses");
@@ -25,6 +27,9 @@ const learnPage = async () => {
       </StickyWorper>
       <FeedWorper>
         <Header title={userProgress.activeCourse.title} />
+        {units.map((unit) => (
+          <div key={unit.id}>{JSON.stringify(unit)}</div>
+        ))}
       </FeedWorper>
     </div>
   );

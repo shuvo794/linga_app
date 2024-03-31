@@ -3,6 +3,7 @@ import db from "./drizzel";
 import { auth } from "@clerk/nextjs";
 import { eq } from "drizzle-orm";
 import { courses, units, userProgress } from "@/db/schema";
+import { date } from "drizzle-orm/mysql-core";
 
 export const getCourses = cache(async () => {
   const data = await db.query.courses.findMany();
