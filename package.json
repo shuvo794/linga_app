@@ -12,6 +12,7 @@
     "db:seed": "tsx ./scripts/seed.ts"
   },
   "dependencies": {
+    "@alptugidin/react-circular-progress-bar": "^1.1.2",
     "@clerk/nextjs": "^4.29.9",
     "@neondatabase/serverless": "^0.9.0",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -26,6 +27,7 @@
     "pg": "^8.11.3",
     "postgres": "^3.4.4",
     "react": "^18",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18",
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.2",

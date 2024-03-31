@@ -1,4 +1,12 @@
 "use client";
+import Link from "next/link";
+
+import { Check, Crown, Star } from "lucide-react";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+
+import "react-circular-progressbar/dist/styles.css";
 type Props = {
   id: number;
   index: number;
@@ -29,5 +37,20 @@ export const LessonButton = ({
     indentionalLevel = cycleIndex - 8;
   }
 
-  return <div>{id}</div>;
+  const rightPossition = indentionalLevel * 40;
+  const isFirst = index === 0;
+  const isLast = index === totalCount;
+  const isComplete = !current && !locked;
+  const Icon = isComplete ? Check : isLast ? Crown : Star;
+  const herf = isComplete ? `/lesson/${id}` : "/lesson";
+
+  return (
+    <Link
+      href={herf}
+      aria-disabled={locked}
+      style={{ pointerEvents: locked ? "none" : "auto" }}
+    >
+      {id}
+    </Link>
+  );
 };
