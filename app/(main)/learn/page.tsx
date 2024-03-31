@@ -28,7 +28,17 @@ const learnPage = async () => {
       <FeedWorper>
         <Header title={userProgress.activeCourse.title} />
         {units.map((unit) => (
-          <div key={unit.id}>{JSON.stringify(unit)}</div>
+          <div key={unit.id} className="mb-10">
+            <Unit
+              id={unit.id}
+              order={unit.order}
+              description={unit.discription}
+              title={unit.title}
+              lessons={unit.lessons}
+              activeLesson={null}
+              activeLessonPercentage={0}
+            />
+          </div>
         ))}
       </FeedWorper>
     </div>
