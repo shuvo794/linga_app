@@ -3,15 +3,28 @@ import { StickyWorper } from "@/components/Sticky-Worper/Sticky_Worper";
 import { Header } from "./Header";
 
 import { UserProgress } from "@/components/User-Progress/User-Progress";
-import { getUnits, getUserProgress } from "@/db/queries";
+import {
+  getCourseProgress,
+  getLessonPercentage,
+  getUnits,
+  getUserProgress,
+} from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Unit } from "./unit";
 
 const learnPage = async () => {
   const UserProgressData = getUserProgress();
   const unitData = getUnits();
+  const courseProgressData = getCourseProgress();
+  const lessonPercentageData = getLessonPercentage();
 
-  const [userProgress, units] = await Promise.all([UserProgressData, unitData]);
+  const [userProgress, units, courseProgress, lessonPercentage] =
+    await Promise.all([
+      UserProgressData,
+      unitData,
+      courseProgressData,
+      lessonPercentageData,
+    ]);
 
   if (!userProgress || !userProgress?.activeCourse) {
     redirect("/courses");

@@ -160,9 +160,19 @@ export const getLesson = cache(async (id?: number) => {
   return { ...data, challenges: normalizedsChallenges };
 });
 
-export const getLessonsProgreess = cache(async () => {
+export const getLessonPercentage = cache(async () => {
   const courseProgress = await getCourseProgress();
   if (!courseProgress?.activeLessonId) {
     return 0;
   }
+  const lesson = await getLesson(courseProgress.activeLessonId);
+  if (!lesson) {
+    return 0;
+  }
+  const completedChallenges = lesson.challenges.filter(
+    (challenge) => challenge.completed
+  );
+  const parcentage =
+    (completedChallenges.length / lesson.challenges.length) * 100;
+  return parcentage;
 });
