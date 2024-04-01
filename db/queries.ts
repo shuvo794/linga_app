@@ -110,7 +110,10 @@ export const getCourseProgress = cache(async () => {
       return lesson.challenges.some((challenge) => {
         return (
           !challenge.challengeProgress ||
-          challenge.challengeProgress.length === 0
+          challenge.challengeProgress.length === 0 ||
+          challenge.challengeProgress.some(
+            (progress) => progress.completed === false
+          )
         );
       });
     });
@@ -147,4 +150,12 @@ export const getLesson = cache(async (id?: number) => {
   if (!data || !data.challenges) {
     return null;
   }
+  const normalizedsChallenges = data.challenges.map((challenge) => {
+    const completed =
+      challenge.challengeProgress &&
+      challenge.challengeProgress.length > 0 &&
+      challenge.challengeProgress.every((progress) => progress.completed);
+    return { ...challenge, completed };
+  });
+  return { ...data, challenges: normalizedsChallenges };
 });
