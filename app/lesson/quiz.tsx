@@ -1,28 +1,35 @@
 "use client";
 
-import { challenges } from "@/db/schema";
+import { challengeOptions, challenges } from "@/db/schema";
+import { useState } from "react";
 
 type Props = {
   initialPercentage: number;
   initialHearts: number;
   initialLessonId: number;
-  initialChallenges: (typeof challenges.$inferSelect & {
+  initialLessonChallenges: (typeof challenges.$inferSelect & {
     completed: boolean;
-    challengeOptions: (typeof challenges.$inferSelect)[];
+    challengeOptions: (typeof challengeOptions.$inferSelect)[];
   })[];
   userSubcrition: any;
 };
 
 export const Quiz = ({
-  initialChallenges,
+  initialLessonChallenges,
   initialPercentage,
   initialHearts,
   initialLessonId,
   userSubcrition,
 }: Props) => {
+  const [hearts, setHearts] = useState(initialHearts);
+  const [percentage, setPercentage] = useState(initialPercentage);
   return (
-    <div>
-      <h1>Quiz</h1>
-    </div>
+    <>
+      <Header
+        hearts={hearts}
+        percentage={percentage}
+        hasActiveSubcription={!!userSubcrition?.isActive}
+      />
+    </>
   );
 };
