@@ -9,6 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        locked:
+          "bg-nutral-200 text-slate-foreground hover:bg-slate-400/90 border-slate-500 border-b-4 active:border-b-0 ",
         default:
           "bg-white text-black  border-slate-200 border-2 border-b-4 active:border-b-2 hover:bg-slate-100",
         parimary:

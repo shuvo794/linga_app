@@ -9,7 +9,9 @@ type Props = {
   discription: string;
   lessons: (typeof lessons.$inferSelect & { completed: boolean })[];
   activeLesson:
-    | (typeof lessons.$inferSelect & { unit: typeof units.$inferSelect })
+    | (typeof lessons.$inferSelect & {
+        unit: typeof units.$inferSelect;
+      })
     | undefined;
   activeLessonPercentage: number;
 };
