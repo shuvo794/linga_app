@@ -119,3 +119,12 @@ export const getCourseProgress = cache(async () => {
     activeLessonId: firstUnCompletedLesson?.id,
   };
 });
+
+export const getLesson = cache(async () => {
+  const { userId } = await auth();
+  const courseProgress = await getCourseProgress();
+  const lessonId = courseProgress?.activeLessonId;
+  if (!lessonId) {
+    return null;
+  }
+});
