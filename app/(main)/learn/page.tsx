@@ -11,6 +11,7 @@ import {
 } from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Unit } from "./unit";
+import { lessons, units as unitsSchema } from "@/db/schema";
 
 const learnPage = async () => {
   const UserProgressData = getUserProgress();
@@ -27,6 +28,10 @@ const learnPage = async () => {
     ]);
 
   if (!userProgress || !userProgress?.activeCourse) {
+    redirect("/courses");
+  }
+
+  if (!courseProgress) {
     redirect("/courses");
   }
   return (
@@ -49,8 +54,14 @@ const learnPage = async () => {
               discription={unit.discription}
               title={unit.title}
               lessons={unit.lessons}
-              activeLesson={undefined}
-              activeLessonPercentage={0}
+              activeLesson={
+                courseProgress.activeLesson as
+                  | (typeof lessons.$inferSelect & {
+                      unit: typeof unitsSchema.$inferSelect;
+                    })
+                  | undefined
+              }
+              activeLessonPercentage={lessonPercentage}
             />
           </div>
         ))}
