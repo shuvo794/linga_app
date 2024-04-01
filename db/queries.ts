@@ -159,3 +159,10 @@ export const getLesson = cache(async (id?: number) => {
   });
   return { ...data, challenges: normalizedsChallenges };
 });
+
+export const getLessonsProgreess = cache(async () => {
+  const courseProgress = await getCourseProgress();
+  if (!courseProgress?.activeLessonId) {
+    return 0;
+  }
+});
