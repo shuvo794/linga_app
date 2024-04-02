@@ -7,5 +7,12 @@
 <p><b>Next JS </b><br/>
 Full Project is Based on NextJS. We have used many components to Build the site.</p>
 
-<p className="text-xl"><b> tailwindcss </b> <br/>
+<p ><b> tailwindcss </b> <br/>
 We have Used tailwindcss to design our site .</p>
+<p ><b> shadcn ui </b> <br/>
+We have Used shadcn ui to design our site .</p>
+<p ><b> drizzle </b> <br/>
+We have Used drizzle to  our server site .</p>
+
+##Firebase LIVE SITE LINK
+<a herf""></a>
