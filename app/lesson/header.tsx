@@ -1,5 +1,5 @@
 import { Progress } from "@/components/ui/progress";
-import { X } from "lucide-react";
+import { InfinityIcon, X } from "lucide-react";
 import Image from "next/image";
 
 type Props = {
@@ -11,7 +11,10 @@ type Props = {
 export const Header = ({ hearts, percentage, hasActiveSubcription }: Props) => {
   return (
     <header className="lg:pt-[50px] pt-20 px-10 flex gap-x-7 items-center justify-between max-w-[1140px] mx-auto w-full">
-      <X className="text-slate-500 hover:opacity-75 transition cursor-pointer" />
+      <X
+        onClick={() => {}}
+        className="text-slate-500 hover:opacity-75 transition cursor-pointer"
+      />
       <Progress value={percentage} />
       <div className="text-rose-500 flex items-center font-bold">
         <Image
@@ -21,6 +24,11 @@ export const Header = ({ hearts, percentage, hasActiveSubcription }: Props) => {
           alt="hearts"
           className="mr-2"
         />
+        {hasActiveSubcription ? (
+          <InfinityIcon className="h-5 w-6 stroke-[3]" />
+        ) : (
+          hearts
+        )}
       </div>
     </header>
   );
