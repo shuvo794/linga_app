@@ -7,5 +7,5 @@
 <p><b>Next JS </b><br/>
 Full Project is Based on NextJS. We have used many components to Build the site.</p>
 
-<p><b> tailwindcss </b> <br/>
-We have Used BootStrap to design our site .</p>
+<p className="text-xl"><b> tailwindcss </b> <br/>
+We have Used tailwindcss to design our site .</p>
