@@ -4,8 +4,8 @@
 
 <b>~ Technologies Used for Building the site ~</b>
 
-<p>Next JS <br/>
+<p><b>Next JS </b><br/>
 Full Project is Based on NextJS. We have used many components to Build the site.</p>
 
-<p> tailwindcss <br/>
+<p><b> tailwindcss </b> <br/>
 We have Used BootStrap to design our site .</p>
