@@ -4,6 +4,10 @@
 
 <b>~ Technologies Used for Building the site ~</b>
 
+<p>User Interface</p>
+
+![screencapture-localhost-3000-2024-04-02-17_29_10](https://github.com/shuvo794/bistro-boss-restaurant/assets/81945670/43c83193-bf21-481e-938d-d956230964d3)
+
 <p><b>Next JS </b><br/>
 Full Project is Based on NextJS. We have used many components to Build the site.</p>
 
