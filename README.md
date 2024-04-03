@@ -19,4 +19,4 @@ We have Used shadcn ui to design our site .</p>
 We have Used drizzle to  our server site .</p>
 
 ##Firebase LIVE SITE LINK
-<a herf"/https://linga-app.vercel.app/">Live</a>
+<a herf"https://linga-app.vercel.app">Live</a>
