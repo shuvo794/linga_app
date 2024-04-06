@@ -15,7 +15,6 @@ import { lessons, units as unitsSchema } from "@/db/schema";
 
 const learnPage = async () => {
   const UserProgressData = getUserProgress();
-
   const unitData = getUnits();
   const courseProgressData = getCourseProgress();
   const lessonPercentageData = getLessonPercentage();
