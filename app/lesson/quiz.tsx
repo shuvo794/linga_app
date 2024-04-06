@@ -33,7 +33,12 @@ export const Quiz = ({
       />
       <div className="flex-1">
         <div className="h-full flex items-center justify-center">
-          <div className="lg:min-h-[350px] lg:w-[600px]"></div>
+          <div className="lg:min-h-[350px] lg:w-[600px] w-full px-6 lg:px-0 flex flex-col gap-y-12">
+            <h1 className="text-lg text-center font-bold lg:text-3xl lg:text-start text-neutral-700 ">
+              Which of these is an apple?
+            </h1>
+            <div>{/* Tuddo challenge components */}</div>
+          </div>
         </div>
       </div>
     </>
