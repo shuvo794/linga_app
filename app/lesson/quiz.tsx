@@ -3,6 +3,7 @@
 import { challengeOptions, challenges } from "@/db/schema";
 import { useState } from "react";
 import { Header } from "./header";
+import { QuesionBubble } from "./quesion-bubble";
 
 type Props = {
   initialPercentage: number;
@@ -50,7 +51,11 @@ export const Quiz = ({
             <h1 className="text-lg text-center font-bold lg:text-3xl lg:text-start text-neutral-700 ">
               {title}
             </h1>
-            <div>{/* Tuddo challenge components */}</div>
+            <div>
+              {challenge.type === "SELECT" && (
+                <QuesionBubble question={challenge.question} />
+              )}
+            </div>
           </div>
         </div>
       </div>
