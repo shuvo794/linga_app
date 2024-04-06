@@ -1,4 +1,7 @@
+"use client";
+
 import { Progress } from "@/components/ui/progress";
+import { useExistModel } from "@/store/use-exist-model";
 import { InfinityIcon, X } from "lucide-react";
 import Image from "next/image";
 
@@ -9,10 +12,11 @@ type Props = {
 };
 
 export const Header = ({ hearts, percentage, hasActiveSubcription }: Props) => {
+  const { open } = useExistModel();
   return (
     <header className="lg:pt-[50px] pt-20 px-10 flex gap-x-7 items-center justify-between max-w-[1140px] mx-auto w-full">
       <X
-        onClick={() => {}}
+        onClick={open}
         className="text-slate-500 hover:opacity-75 transition cursor-pointer"
       />
       <Progress value={percentage} />
