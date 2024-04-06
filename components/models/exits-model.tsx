@@ -19,7 +19,7 @@ export const ExistModel = () => {
     <Dialog open={isOpen} onOpenChange={close}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <div>
+          <div className="flex justify-center items-center w-full mb-5">
             <Image src="/mascot_sad.svg" width={80} height={80} alt="mascot" />
           </div>
         </DialogHeader>
