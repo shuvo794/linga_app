@@ -1,7 +1,8 @@
 "use client";
 
-import { Dialog } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { useExistModel } from "@/store/use-exist-model";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -14,5 +15,15 @@ export const ExistModel = () => {
   if (!isclient) {
     return null;
   }
-  return <Dialog open={isOpen} onOpenChange={close}></Dialog>;
+  return (
+    <Dialog open={isOpen} onOpenChange={close}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <div>
+            <Image src="/mascot_sad.svg" width={80} height={80} alt="mascot" />
+          </div>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  );
 };

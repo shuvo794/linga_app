@@ -21,8 +21,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={fonts.className}>
-          <ExistModel />
           <Toaster />
+          <ExistModel />
           {children}
         </body>
       </html>
